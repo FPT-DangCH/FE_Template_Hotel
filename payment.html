@@ -218,7 +218,7 @@
                                                 value="0977 111 993 228" disabled>
                                             <label for="accountNumber">Account Number</label>
                                             <button class="btn btn-outline-secondary" type="button"
-                                                onclick="copyToClipboard()">
+                                                onclick="copyToClipboard('Account number has been copied to clipboard.')">
                                                 <i class="fa-regular fa-copy"></i>
                                             </button>
                                         </div>
@@ -227,6 +227,17 @@
                                         <div class="form-floating">
                                             <input type="text" class="form-control" id="money" value="1.200.000 VNĐ" disabled>
                                             <label for="money">Money</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-floating input-group">
+                                            <input type="text" class="form-control" id="accountNumber"
+                                                value="i138r00p1" disabled>
+                                            <label for="accountNumber">Description</label>
+                                            <button class="btn btn-outline-secondary" type="button"
+                                                onclick="copyToClipboard('Description has been copied to clipboard.')">
+                                                <i class="fa-regular fa-copy"></i>
+                                            </button>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -360,18 +371,11 @@
     <script src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        function copyToClipboard() {
-            var copyText = document.getElementById("accountNumber");
-            var textArea = document.createElement("textarea");
-            textArea.value = copyText.value;
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand("copy");
-            document.body.removeChild(textArea);
+        function copyToClipboard(msg) {
             Swal.fire({
                 icon: 'success',
                 title: 'Copied!',
-                text: 'Account number has been copied to clipboard.',
+                text: msg,
                 timer: 1000,
                 showConfirmButton: false
             });
